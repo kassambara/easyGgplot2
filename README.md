@@ -13,6 +13,6 @@ install_github("easyGgplot2", "kassambara")
 
 ## Geting started
 
-Find out more at http://www.sthda.com
+Find out more at http://www.sthda.com/english/articles/3-easyggplot2/
 
 
