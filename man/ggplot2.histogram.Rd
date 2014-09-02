@@ -2,7 +2,7 @@
 \alias{ggplot2.histogram}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Plot easily a histogram plot with R package ggplot2
+Easy histogram plot with R package ggplot2
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~

@@ -2,7 +2,7 @@
 \alias{ggplot2.jitter}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Plot easily a stripchart plot with R package ggplot2
+Easy stripchart plot with R package ggplot2
 }
 \description{
 This function is an alias of ggplot2.stripchart. See ggplot2.stripchart for more documentation on the arguments to use.
