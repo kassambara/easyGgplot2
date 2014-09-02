@@ -8,3 +8,4 @@ To install the latest released version :
 library(devtools)<br/>
 install_github("kassambara", "easyGgplot2")
 
+Find out more at http://www.sthda.com
