@@ -2,7 +2,7 @@
 \alias{ggplot2.boxplot}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Plot easily a boxplot plot with R package ggplot2
+Easy boxplot plot with R package ggplot2
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
