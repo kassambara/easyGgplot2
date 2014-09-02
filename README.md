@@ -5,7 +5,6 @@ This package contains an easy to use functions to make plots - boxplot, density 
 
 To install the latest released version :
 
-
-library(devtools)
+library(devtools)<br/>
 install_github("kassambara", "easyGgplot2")
 
