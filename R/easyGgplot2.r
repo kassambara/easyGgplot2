@@ -1424,6 +1424,7 @@ showCols <- function(cl=colors(), bg = "grey", cex = 0.75, rot = 30) {
             vp=vp, gp=gpar(cex = cex, col = cm))
 }
 
+
 # #arrow : arrow is function from package grid. This function Describe arrows to add to a line.
 # #See ?grid::arrow for more details
 # arrow<-function(angle = 30, length = unit(0.25, "inches"),ends = "last", type = "open")
