@@ -111,7 +111,7 @@ ggplot2.density <- function(data, xName = NULL, groupName = NULL,
     else {
       df <- data.frame(grp = factor(data[,groupName]), x = data[,xName])
       df.m <- stats::aggregate(df[, "x"], by = list(grp = df[, "grp"]), mean)
-      # df.m = plyr::ddply(df, .(grp), summarise, x.mean = mean(x))
+      # df.m = plyr::ddply(df, plyr::.(grp), plyr::summarise, x.mean = mean(x))
       names(df.m) <- c(groupName,'x.mean')
       if (is.null(meanLineColor))
         p <-
