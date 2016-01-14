@@ -9,7 +9,7 @@ From an R console (R >= 3.1.0):
 
 install.packages("devtools")<br/>
 library(devtools)<br/>
-install_github("easyGgplot2", "kassambara")
+install_github("kassambara/easyGgplot2")
 
 ## Geting started
 
