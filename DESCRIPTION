@@ -1,16 +1,39 @@
 Package: easyGgplot2
 Type: Package
 Title: Perform and customize easily a plot with ggplot2
-Version: 1.0.0
+Version: 1.0.0.9000
 Date: 2014-08-31
 Author: Alboukadel Kassambara <alboukadel.kassambara@gmail.com>
 Maintainer: Alboukadel kassambara <alboukadel.kassambara@gmail.com>
-Description: An easy-to-use way to make plot with R package ggplot2
+Description: An easy-to-use way to make plot with R package ggplot2.
 License: GPL-2
 LazyData: true
-Depends: R (>= 2.14), ggplot2, plyr, grid
-Imports: ggplot2 (>= 1.0.0), plyr (>= 1.7.1), grid
-Suggests: ggplot2, knitr
+Depends:
+    R (>= 2.14),
+    ggplot2
+Imports:
+    grid
+Suggests:
+    knitr
 VignetteBuilder: knitr
-URL: htt://www.sthda.com, 
-BugReports:https://github.com/kassambara/easyGgplot2/issues
+URL: htt://www.sthda.com
+BugReports: https://github.com/kassambara/easyGgplot2/issues
+Collate:
+    'generateRLineTypes.R'
+    'generateRPointShapes.R'
+    'ggplot2.setAxis.R'
+    'ggplot2.customize.R'
+    'utilities.R'
+    'ggplot2.barplot.R'
+    'ggplot2.boxplot.R'
+    'ggplot2.density.R'
+    'ggplot2.dotplot.R'
+    'ggplot2.histogram.R'
+    'ggplot2.lineplot.R'
+    'ggplot2.multiplot.R'
+    'ggplot2.scatterplot.R'
+    'ggplot2.stripchart.R'
+    'ggplot2.violinplot.R'
+    'rquery.loadPackages.R'
+    'showCols.R'
+RoxygenNote: 5.0.1

@@ -16,12 +16,6 @@ Total bill at different time
     \item{\code{total_bill}}{a numeric vector}
   }
 }
-\details{
-%%  ~~ If necessary, more details than the __description__ above ~~
-}
-\source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
-}
 \references{
 http://www.sthda.com
 }
