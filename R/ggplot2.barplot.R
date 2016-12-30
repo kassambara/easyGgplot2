@@ -2,20 +2,22 @@
 NULL
 #' Easy barplot plot with R package ggplot2
 #' 
-#' @param data data.frame or a numeric vector. Columns are variables and rows
-#' are observations.
-#' @param xName The name of column containing x variable (i.e groups). Default
-#' value is NULL.
-#' @param yName The name of column containing y variable. If yName=NULL, data
-#' should be a numeric vector.
-#' @param groupName The name of column containing group variable. This variable
-#' is used to color plot according to the group.
-#' @param groupColors Color of groups. groupColors should have the same length
-#' as groups.
-#' @param brewerPalette This can be also used to indicate group colors. In this
-#' case the parameter groupColors should be NULL. e.g: brewerPalette="Paired".
-#' @param \dots Other arguments passed on to ggplot2.customize custom function
-#' or to geom_bar functions from ggplot2 package.
+#' @param data data.frame or a numeric vector. Columns are variables and rows 
+#'   are observations.
+#' @param xName The name of column containing x variable (i.e groups). Default 
+#'   value is NULL.
+#' @param yName The name of column containing y variable. If yName=NULL, data 
+#'   should be a numeric vector.
+#' @param groupName The name of column containing group variable. This variable 
+#'   is used to color plot according to the group.
+#' @param groupColors Color of groups. groupColors should have the same length 
+#'   as groups.
+#' @param brewerPalette This can be also used to indicate group colors. In this 
+#'   case the parameter groupColors should be NULL. e.g: brewerPalette="Paired".
+#' @param position Position adjustment, either as a string, or the result of a
+#'   call to a position adjustment function.
+#' @param \dots Other arguments passed on to ggplot2.customize custom function 
+#'   or to geom_bar functions from ggplot2 package.
 #' @return a ggplot
 #' @author Alboukadel Kassambara <alboukadel.kassambara@@gmail.com>
 #' @seealso \code{\link{ggplot2.lineplot}, \link{ggplot2.histogram}}
@@ -39,7 +41,8 @@ NULL
 #' 
 #' @export ggplot2.barplot
 ggplot2.barplot<-function(data, xName=NULL, yName=NULL,groupName=NULL, 
-                          groupColors=NULL, brewerPalette=NULL,...)
+                          groupColors=NULL, brewerPalette=NULL,
+                          position = position_stack(), ...)
 {
   
   pms <- .barplot_params(...)
@@ -86,7 +89,7 @@ ggplot2.barplot<-function(data, xName=NULL, yName=NULL,groupName=NULL,
     if(!is.null(yName)) p<-ggplot(data=data, aes_string(x=xName, y=yName, fill=groupName))
     else p<-ggplot(data=data, aes_string(x=xName, fill=groupName))
   }
-  p<- p+geom_bar(stat=stat, position = "stack", width = pms$width,
+  p<- p+geom_bar(stat=stat, position = position, width = pms$width,
                  binwidth = pms$binwidth,
                  na.rm = pms$na.rm, show.legend = pms$show.legend,
                  inherit.aes = pms$inherit.aes)

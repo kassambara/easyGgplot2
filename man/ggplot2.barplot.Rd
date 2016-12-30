@@ -5,28 +5,32 @@
 \title{Easy barplot plot with R package ggplot2}
 \usage{
 ggplot2.barplot(data, xName = NULL, yName = NULL, groupName = NULL,
-  groupColors = NULL, brewerPalette = NULL, ...)
+  groupColors = NULL, brewerPalette = NULL, position = position_stack(),
+  ...)
 }
 \arguments{
-\item{data}{data.frame or a numeric vector. Columns are variables and rows
+\item{data}{data.frame or a numeric vector. Columns are variables and rows 
 are observations.}
 
-\item{xName}{The name of column containing x variable (i.e groups). Default
+\item{xName}{The name of column containing x variable (i.e groups). Default 
 value is NULL.}
 
-\item{yName}{The name of column containing y variable. If yName=NULL, data
+\item{yName}{The name of column containing y variable. If yName=NULL, data 
 should be a numeric vector.}
 
-\item{groupName}{The name of column containing group variable. This variable
+\item{groupName}{The name of column containing group variable. This variable 
 is used to color plot according to the group.}
 
-\item{groupColors}{Color of groups. groupColors should have the same length
+\item{groupColors}{Color of groups. groupColors should have the same length 
 as groups.}
 
-\item{brewerPalette}{This can be also used to indicate group colors. In this
+\item{brewerPalette}{This can be also used to indicate group colors. In this 
 case the parameter groupColors should be NULL. e.g: brewerPalette="Paired".}
 
-\item{\dots}{Other arguments passed on to ggplot2.customize custom function
+\item{position}{Position adjustment, either as a string, or the result of a
+call to a position adjustment function.}
+
+\item{\dots}{Other arguments passed on to ggplot2.customize custom function 
 or to geom_bar functions from ggplot2 package.}
 }
 \value{
