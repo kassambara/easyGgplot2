@@ -28,8 +28,8 @@ http://www.sthda.com
 ggplot2.boxplot(data=ToothGrowth, xName='dose',yName='len',
                 mainTitle="Plot of length according\n to the dose",
                 xtitle="Dose (mg)", ytitle="Length")
-                
-#Dotplot               
+
+#Dotplot
 ggplot2.dotplot(data=ToothGrowth, xName='dose',yName='len',
                 mainTitle="Plot of length according\n to the dose",
                 xtitle="Dose (mg)", ytitle="Length")

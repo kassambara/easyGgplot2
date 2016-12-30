@@ -6,7 +6,7 @@ NULL
 #' @param plot A plot object generated with ggplot2 or easyGgplot2 packages
 #' (boxplot, densityplot, histogram, dotplot, ....)
 #' @param \dots Any argument from the list of the arguments indicated below.
-#' @details 
+#' @details
 #' \itemize{
 #'\item{plot}{
 #'  A plot object generated with ggplot2 or easyGgplot2 packages (boxplot, densityplot, histogram, dotplot, ....)
@@ -15,8 +15,8 @@ NULL
 #' Any argument from the list of the arguments indicated below.
 #'}
 #' \strong{Customize plot title}
-#'\item{mainTitle}{Title of the plot.}
-#'\item{mainTitleFont}{A vector of length 3 indicating respectively the size, the style and the color of main title. Possible values for font style are "plain", "italic", "bold", "bold.italic". Color can be specified as an hexadecimal code (e.g: "#FFCC00") or by the name (e.g : "red", "green"). Default value is: mainTitleFont=c(14, "bold", "black").}
+#'\item{mainTitle}{ Title of the plot.}
+#'\item{mainTitleFont}{ A vector of length 3 indicating respectively the size, the style and the color of main title. Possible values for font style are "plain", "italic", "bold", "bold.italic". Color can be specified as an hexadecimal code (e.g: "#FFCC00") or by the name (e.g : "red", "green"). Default value is: mainTitleFont=c(14, "bold", "black").}
 #'
 #'\strong{Customize x and y axis}
 #'\item{xShowTitle, yShowTitle}{if TRUE, x axis and y axis titles will be shown. \strong{Default values are TRUE.}}
@@ -54,7 +54,7 @@ NULL
 #'\item{facetingTextAngles}{Modify the facet label text orientation. It indicates the angles of the x and y texts (in [0, 360]). \strong{Default value is c(NULL, NULL).} }
 #'
 #'\strong{Others}
-#'\item{orientation}{Change the orientation of the plot. Possible values are c("standard", "horizontal", "yAxisReversed"). \strong{Default value is "standard".}} 
+#'\item{orientation}{Change the orientation of the plot. Possible values are c("standard", "horizontal", "yAxisReversed"). \strong{Default value is "standard".}}
 #'
 #'}
 #' @return a ggplot
@@ -64,25 +64,25 @@ NULL
 #' \link{ggplot2.density}}
 #' @references http://www.sthda.com
 #' @examples
-#' 
+#'
 #' #data
 #' set.seed(1234)
-#' df <- data.frame(grp = factor( rep(c("A","B"), each=200) ), 
+#' df <- data.frame(grp = factor( rep(c("A","B"), each=200) ),
 #'                    var = c(rnorm(200),rnorm(200, mean=.8)))
-#' 
+#'
 #' #use ggplot2.customize to customize the plot
 #' plot<-ggplot2.density(data=df, xName='var',groupName='grp', groupColors=c('#999999','#E69F00'))
 #' print(plot)
-#' 
+#'
 #' plot<-ggplot2.customize(plot, mainTitle="Plot of variable histogram \nper group",
 #'                         xtitle="Variable", ytitle="Density")
 #' print(plot)
-#' 
+#'
 #' @export ggplot2.customize
 ggplot2.customize<-function(plot,...)
 {
-  args=list(...) 
-  
+  args=list(...)
+
   #Facets display subsets of the dataset in different panels.
   #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(!is.null(args$faceting)) faceting=args$faceting else faceting=FALSE
@@ -98,45 +98,45 @@ ggplot2.customize<-function(plot,...)
       if(facetingDirection=="vertical")
         plot<-plot+ facet_grid(as.formula(paste(facetingVarNames," ~ .", sep='')), scales=facetingScales)
       else if(facetingDirection=="horizontal")
-        plot<-plot+ facet_grid(as.formula(paste(". ~ ", facetingVarNames,sep='')), scales=facetingScales) 
+        plot<-plot+ facet_grid(as.formula(paste(". ~ ", facetingVarNames,sep='')), scales=facetingScales)
     }#end of if
     #Faceting is done accoording to 2 variables
     #first variable is vertical and second variable is horizontal
     else if(length(facetingVarNames)==2)
-      plot<-plot+ facet_grid(as.formula(paste(facetingVarNames[1], "~ ", facetingVarNames[2],sep='')), scales=facetingScales) 
-    
+      plot<-plot+ facet_grid(as.formula(paste(facetingVarNames[1], "~ ", facetingVarNames[2],sep='')), scales=facetingScales)
+
   }
-  
-  
+
+
   # Background color
   #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   #Plot panel background color
   if(!is.null(args$backgroundColor)){
     backgroundColor<-args$backgroundColor
     if(backgroundColor%in%c("gray", "grey")) plot<-plot+theme_gray()#gray theme
-    else if(backgroundColor=="white") plot<-plot+theme_bw()#black and white theme 
+    else if(backgroundColor=="white") plot<-plot+theme_bw()#black and white theme
     #for the other color
     else{
       plot<-plot+theme(
         panel.background=element_rect(fill=backgroundColor, size=0.5,
-                                      linetype='solid',colour=backgroundColor) )       
+                                      linetype='solid',colour=backgroundColor) )
     }
   }
-  
+
   #Facet label aperance
   #+++++++++++++++++++++++++++
   #Attention : should be here after backgroundColor modification => don't change the place
-  #If you put the text before backgroundColor modification, the facet backgrount remain gray, even if 
+  #If you put the text before backgroundColor modification, the facet backgrount remain gray, even if
   #you indicate another color
   if(faceting && !is.null(facetingVarNames)){
     plot<-plot+theme(
       strip.text.x = element_text(size=facetingFont[1], face=facetingFont[2], color=facetingFont[3], angle=facetingTextAngles[1]),
       strip.text.y = element_text(size=facetingFont[1], face=facetingFont[2], color=facetingFont[3], angle=facetingTextAngles[2]),
-      strip.background = element_rect(fill=facetingRect$background, colour=facetingRect$lineColor, 
+      strip.background = element_rect(fill=facetingRect$background, colour=facetingRect$lineColor,
                                       linetype=facetingRect$lineType, size=facetingRect$lineSize)
     )
   }
-  
+
   #Change axis default value accoording to call arguments
   #+++++++++++++++++++++++++++++++++++
   #x and y axis titles and scales
@@ -160,8 +160,8 @@ ggplot2.customize<-function(plot,...)
   if(!is.null(args$hideAxisTicks)) hideAxisTicks<-args$hideAxisTicks else hideAxisTicks=FALSE
   #axis line
   if(!is.null(args$axisLine)) axisLine<-args$axisLine else axisLine=c(0.5, "solid", "#E5E5E5")
-  
-  
+
+
   plot<-ggplot2.setAxis(plot, xShowTitle=xShowTitle, yShowTitle=yShowTitle,
                         xtitle=xtitle, ytitle=ytitle,
                         xtitleFont=xtitleFont, ytitleFont=ytitleFont,
@@ -170,15 +170,15 @@ ggplot2.customize<-function(plot,...)
                         xTickLabelFont=xTickLabelFont, yTickLabelFont=yTickLabelFont,
                         xtickLabelRotation=xtickLabelRotation, ytickLabelRotation=ytickLabelRotation,
                         hideAxisTicks=hideAxisTicks, axisLine=axisLine)
-  
+
   # Customize main title
   #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(!is.null(args$mainTitle))plot<-plot+ggtitle(args$mainTitle)
   if(!is.null(args$mainTitleFont)) mainTitleFont=args$mainTitleFont
   else mainTitleFont=c(14, "bold", "black")
-  plot<-plot+theme(plot.title=element_text(size=as.numeric(mainTitleFont[1]), 
-                                           lineheight=1.0,face=mainTitleFont[2], colour=mainTitleFont[3]))
-  
+  plot<-plot+theme(plot.title=element_text(size=as.numeric(mainTitleFont[1]),
+                                           lineheight=1.0, face=mainTitleFont[2], colour=mainTitleFont[3]))
+
   # plot Panel color and grid
   #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   #Plot panel grid color
@@ -200,22 +200,22 @@ ggplot2.customize<-function(plot,...)
                                          axis.line=element_line(size=as.numeric(axisLine[1]),
                                                                 linetype=axisLine[2], colour=axisLine[3]))
   }
-  
+
   # Legend
   #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(!is.null(args$showLegend)) showLegend=args$showLegend else showLegend=TRUE
   #possible values for legend position: legendPosition=c("right", "left","top", "bottom")
   #legendPosition can be also a numeric vector c(x, y) indicating the coordinate of legendBox
-  #x and y values must be between 0 and 1. c(0,0) corresponds to "bottom left" 
+  #x and y values must be between 0 and 1. c(0,0) corresponds to "bottom left"
   #and  c(1,1) corresponds to "top right" position
   if(!is.null(args$legendPosition)) legendPosition=args$legendPosition else legendPosition ="right"
   if(showLegend==TRUE) plot<-plot+theme(legend.position=legendPosition)
   else plot<-plot+theme(legend.position='none')
-  
+
   if(showLegend==TRUE){
     #+++++++legend background and text font style+++++
     #Legend background. legendBackground: c(boxFill, boxLineSize, boxLineType, boxLineColor)
-    if(!is.null(args$legendBackground)) legendBackground=args$legendBackground 
+    if(!is.null(args$legendBackground)) legendBackground=args$legendBackground
     else legendBackground=c("#FFFFFF", 0.5, "blank", "black")
     #Legend text font. legendTextFont=c(size, style, color)
     if(!is.null(args$legendTextFont)) legendTextFont=args$legendTextFont
@@ -224,23 +224,23 @@ ggplot2.customize<-function(plot,...)
     if(!is.null(args$legendTitleFont)) legendTitleFont=args$legendTitleFont
     else legendTitleFont=c(10, "bold", "black")
     plot<-plot+
-      theme(legend.title=element_text(size=as.numeric(legendTitleFont[1]), 
+      theme(legend.title=element_text(size=as.numeric(legendTitleFont[1]),
                                       face=legendTitleFont[2], colour=legendTitleFont[3]))+
-      theme(legend.text=element_text(size=as.numeric(legendTextFont[1]), 
+      theme(legend.text=element_text(size=as.numeric(legendTextFont[1]),
                                      face=legendTextFont[2], colour=legendTextFont[3]))+
       theme(legend.background=element_rect(fill=legendBackground[1], size=as.numeric(legendBackground[2]),
                                            linetype=legendBackground[3], colour=legendBackground[4]))
     #legendTitle: title of legend
-    if(!is.null(args$legendTitle)) plot<-plot+labs(fill=args$legendTitle, colour=args$legendTitle, shape=args$legendTitle) 
+    if(!is.null(args$legendTitle)) plot<-plot+labs(fill=args$legendTitle, colour=args$legendTitle, shape=args$legendTitle)
     #legendItemOrder : character vector indicating the order of items in the legends.
     if(!is.null(args$legendItemOrder)) plot<-plot+scale_x_discrete(limits=as.character(args$legendItemOrder))
   }
-  
+
   # Orientation of the plot
   #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if(!is.null(args$orientation)) orientation=args$orientation else orientation="standard"
-  if(orientation=="horizontal") plot<-plot+coord_flip() 
-  if(orientation=="yAxisReversed") plot<-plot+scale_y_reverse() 
-  
+  if(orientation=="horizontal") plot<-plot+coord_flip()
+  if(orientation=="yAxisReversed") plot<-plot+scale_y_reverse()
+
   plot
 }

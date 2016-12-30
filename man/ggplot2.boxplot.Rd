@@ -11,51 +11,51 @@ ggplot2.boxplot(data, xName = NULL, yName = NULL, groupName = NULL,
   jitter = 0.2, groupColors = NULL, brewerPalette = NULL, ...)
 }
 \arguments{
-\item{data}{data.frame or a numeric vector. Columns are variables and rows 
+\item{data}{data.frame or a numeric vector. Columns are variables and rows
 are observations.}
 
-\item{xName}{The name of column containing x variable (i.e groups). Default 
+\item{xName}{The name of column containing x variable (i.e groups). Default
 value is NULL.}
 
-\item{yName}{The name of column containing y variable. If yName=NULL, data 
+\item{yName}{The name of column containing y variable. If yName=NULL, data
 should be a numeric vector.}
 
-\item{groupName}{The name of column containing group variable. This variable 
+\item{groupName}{The name of column containing group variable. This variable
 is used to color plot according to the group.}
 
 \item{position}{Position adjustment, either as a string, or the result of a
 call to a position adjustment function.}
 
-\item{addMean}{if TRUE, the mean point is added on the plot for each group. 
+\item{addMean}{if TRUE, the mean point is added on the plot for each group.
 Default value is FALSE.}
 
 \item{meanPointShape}{The shape of mean point.}
 
 \item{meanPointSize}{The size of mean point}
 
-\item{meanPointColor}{Border color of the mean point. Default value is 
+\item{meanPointColor}{Border color of the mean point. Default value is
 "black".}
 
-\item{meanPointFill}{Fill color of mean point. This parameter is used only 
+\item{meanPointFill}{Fill color of mean point. This parameter is used only
 when meanPointShape=21 to 25. Default value is "blue"}
 
-\item{addDot}{If TRUE, dotplot is added on the boxplot. Default value is 
+\item{addDot}{If TRUE, dotplot is added on the boxplot. Default value is
 FALSE.}
 
 \item{dotSize}{The size of dots.}
 
-\item{dotPosition}{Possible values are "center" and "jitter". Default value 
+\item{dotPosition}{Possible values are "center" and "jitter". Default value
 is "center".}
 
 \item{jitter}{Degree of jitter in x direction. Default value is 0.2.}
 
-\item{groupColors}{Color of groups. groupColors should have the same length 
+\item{groupColors}{Color of groups. groupColors should have the same length
 as groups.}
 
-\item{brewerPalette}{This can be also used to indicate group colors. In this 
+\item{brewerPalette}{This can be also used to indicate group colors. In this
 case the parameter groupColors should be NULL. e.g: brewerPalette="Paired".}
 
-\item{\dots}{Other arguments passed on to ggplot2.customize custom function 
+\item{\dots}{Other arguments passed on to ggplot2.customize custom function
 or to geom_dotplot and to geom_boxplot functions from ggplot2 package.}
 }
 \value{
@@ -84,7 +84,7 @@ Alboukadel Kassambara <alboukadel.kassambara@gmail.com>
 http://www.sthda.com
 }
 \seealso{
-\code{\link{ggplot2.dotplot}, \link{ggplot2.violinplot}, 
+\code{\link{ggplot2.dotplot}, \link{ggplot2.violinplot},
   \link{ggplot2.stripchart}, \link{ggplot2.density},
   \link{ggplot2.histogram}}
 }
